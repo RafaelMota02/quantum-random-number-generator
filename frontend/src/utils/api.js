@@ -120,3 +120,13 @@ export const generateRandomNumber = () => {
     },
   });
 };
+
+/**
+ * Ping the backend to keep it alive on services like Render
+ * @returns {Promise<{status: string}>}
+ */
+export const ping = () => {
+  return apiRequest('/ping', {
+    method: 'GET',
+  });
+};

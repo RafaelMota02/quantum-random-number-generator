@@ -19,6 +19,10 @@ export const RETRY_CONFIG = {
   TIMEOUT: 10000, // ms
 };
 
+export const KEEP_ALIVE_CONFIG = {
+  INTERVAL: 5 * 60 * 1000, // 5 minutes in ms (Render timeout is ~15 min)
+};
+
 export const LOCAL_STORAGE_KEYS = {
   NUMBER_HISTORY: 'quantumRandomHistory',
 };

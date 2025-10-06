@@ -1,4 +1,5 @@
 import './App.css';
+import { useEffect } from 'react';
 import ErrorBoundary from './components/ui/ErrorBoundary.jsx';
 import Header from './components/layout/Header.jsx';
 import Footer from './components/layout/Footer.jsx';
@@ -7,6 +8,8 @@ import QuantumDescription from './components/features/QuantumDescription.jsx';
 import History from './components/features/History.jsx';
 import { useQuantumApi } from './hooks/useQuantumApi.js';
 import { useHistory } from './hooks/useHistory.js';
+import { ping } from './utils/api.js';
+import { KEEP_ALIVE_CONFIG } from './utils/constants.js';
 
 function App() {
   const { loading, error, lastNumber, generateNumber, clearError } = useQuantumApi();
@@ -23,6 +26,21 @@ function App() {
   const handleUserAction = () => {
     if (error) clearError();
   };
+
+  // Keep-alive ping for Render backend in production
+  useEffect(() => {
+    if (import.meta.env.PROD) {
+      const interval = setInterval(async () => {
+        try {
+          await ping();
+        } catch (error) {
+          console.warn('Keep-alive ping failed:', error);
+        }
+      }, KEEP_ALIVE_CONFIG.INTERVAL);
+
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   return (
     <ErrorBoundary>

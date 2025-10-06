@@ -73,10 +73,6 @@ The app uses a full-stack architecture:
 
 Fork the repo, create a feature branch, and submit a PR.
 
-## 📄 License
-
-MIT License - free for personal and commercial use.
-
 ## ⚛ Quantum Details
 
 Uses Qiskit Aer simulator with 7 qubits in superposition, measurement provides 128 possible outcomes mapped to 1-100 range for uniform distribution.
