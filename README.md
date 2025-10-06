@@ -4,7 +4,7 @@ A modern web application that generates truly random numbers using quantum compu
 
 ## 🚀 Live Demo
 
-- **Frontend**: [View on Vercel](https://quantum-random-number-generator-eta.vercel.app/)
+- **Frontend**: [View on Vercel](https://quantum-random-number-generator-po8.vercel.app/)
 - **Backend API**: [View on Render](https://quantum-random-number-generator-cio3.onrender.com)
 
 ## ✨ Features
